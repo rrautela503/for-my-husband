@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Destiny Build v1.16 ❤️</title>
+    <style>
+        :root {
+            --bg-color: #ffdae0;
+            --card-bg: white;
+            --text-color: #4a4a4a;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color); 
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23ff4d6d' fill-opacity='0.15' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: background 1.2s ease, color 1.2s ease;
+        }
+
+        body.night-mode {
+            background-color: #0b1126 !important;
+            background-image: url('stars.jpg') !important;
+            background-size: cover !important;
+            background-attachment: fixed !important;
+            background-position: center !important;
+            color: #f0f0f0;
+        }
+
+        header {
+            background-color: #ff6b81;
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 { margin: 0; font-size: 2.5rem; }
+
+        .container {
+            max-width: 800px;
+            width: 90%;
+            margin: 2rem auto;
+            text-align: center;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            transition: transform 0.3s, background 0.8s, border-color 0.8s;
+            position: relative;
+        }
+
+        body.night-mode .card {
+            background: rgba(11, 22, 49, 0.75);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 107, 129, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 241, 255, 0.1);
+            color: #ffffff;
+        }
+
+        .card:hover { transform: translateY(-5px); }
+
+        /* Counter Styling */
+        .counter-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .counter-box {
+            background: #fff0f2;
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid #ffb3c1;
+            transition: background 0.5s, border-color 0.5s;
+        }
+        body.night-mode .counter-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 107, 129, 0.5);
+        }
+        .counter-num {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ff6b81;
+        }
+
+        /* Bubu & Dudu Media Layout */
+        .panda-container {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 1.5rem 0;
+        }
+        .panda-character {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .panda-img {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            border-radius: 15px;
+            animation: pandaBounce 0.6s infinite alternate ease-in-out;
+        }
+        .dudu-img { animation-delay: 0.3s; }
+        
+        @keyframes pandaBounce {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(-12px) scale(1.02); }
+        }
+        .panda-label {
+            background: #ff6b81;
+            color: white;
+            padding: 3px 12px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .heart {
+            color: #ff6b81;
+            font-size: 3rem;
+            animation: heartbeat 1.2s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 40%, 80%, 100% { transform: scale(1); }
+            20%, 60% { transform: scale(1.1); }
+        }
+
+        .btn {
+            background-color: #ff6b81;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1.1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 107, 129, 0.4);
+            transition: 0.1s;
+            margin: 10px;
+        }
+
+        .btn:hover { background-color: #ff4757; }
+
+        .button-zone {
+            position: relative;
+            height: 80px;
+            margin: 20px auto 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 400px;
+        }
+
+        #no-btn {
+            background-color: #a1a1a1;
+            position: absolute;
+            margin: 0;
+            transition: all 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            left: 55%; 
+        }
+
+        #yes-btn-static {
+            margin-right: 35px; 
+        }
+
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } .counter-grid { grid-template-columns: 1fr 1fr; } }
+
+        .coupon { 
+            background: #fff5f7; 
+            border: 2px dashed #ffb3c1; 
+            padding: 1rem; 
+            border-radius: 10px; 
+            transition: background 0.5s, transform 0.2s; 
+            cursor: pointer;
+        }
+        .coupon:hover {
+            transform: scale(1.03);
+            background: #ffe3e8;
+        }
+        body.night-mode .coupon { background: rgba(255, 255, 255, 0.03); border-color: rgba(255, 107, 129, 0.3); }
+        body.night-mode .coupon:hover { background: rgba(255, 107, 129, 0.15); }
+
+        .gallery-item { width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 10px; }
+        
+        .valorant-badge {
+            background: linear-gradient(45deg, #bd3944, #ff4655);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 100000;
+        }
+        .modal-box {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            max-width: 400px;
+            width: 85%;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            animation: modalPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            color: #4a4a4a;
+        }
+        @keyframes modalPop {
+            0% { transform: scale(0.7); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .modal-emoji {
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        .pour-animation {
+            animation: pourEffect 1.5s ease-in-out infinite alternate;
+        }
+        @keyframes pourEffect {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(-25deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="bg-music" loop>
+        <source src="music.mp3" type="audio/mp3">
+    </audio>
+
+    <canvas id="effectsCanvas"></canvas>
+
+    <div class="modal-overlay" id="couponModal" onclick="closeModal()">
+        <div class="modal-box" onclick="event.stopPropagation()">
+            <div class="modal-emoji" id="modalEmoji">☕</div>
+            <h2 id="modalTitle" style="margin-top:0; color:#ff6b81;">Coupon Activated!</h2>
+            <p id="modalDesc" style="font-size:1.1rem; line-height:1.5;">Coupon Details</p>
+            <button class="btn" onclick="closeModal()" style="margin-top:15px;">Close Receipt</button>
+        </div>
+    </div>
+
+    <header>
+        <h1>Hi Pookie! ❤️</h1>
+        <p>You are the CSS to my HTML. You make everything beautiful.</p>
+        <button class="btn" style="background: white; color: #ff6b81; font-size: 0.9rem; padding: 6px 15px;" onclick="toggleMusic()">🎵 Play Music (Olivia Dean - So Easy)</button>
+    </header>
+
+    <div class="container">
+        
+        <!-- Section 1: The Live Counter -->
+        <div class="card">
+            <div class="heart">⏳</div>
+            <h2>Running the Clock Since Day 1</h2>
+            <p>Every single second spent loving you is logged perfectly in my database.</p>
+            <div class="counter-grid">
+                <div class="counter-box"><div class="counter-num" id="days">-</div><div>Days</div></div>
+                <div class="counter-box"><div class="counter-num" id="hours">-</div><div>Hours</div></div>
+                <div class="counter-box"><div class="counter-num" id="minutes">-</div><div>Minutes</div></div>
+                <div class="counter-box"><div class="counter-num" id="seconds">-</div><div>Seconds</div></div>
+            </div>
+        </div>
+
+        <!-- Section 2: Bubu & Dudu Custom Mascots -->
+        <div class="card">
+            <h3>Our Official Mascots 🐼💖</h3>
+            <p>Just like these two, we are a perfect team.</p>
+            <div class="panda-container">
+                <div class="panda-character">
+                    <img src="bubu.png.jpg" alt="Bubu" class="panda-img">
+                    <div class="panda-label">Bubu</div>
+                </div>
+                <div class="panda-character">
+                    <img src="dudu.png.jpg" alt="Dudu" class="panda-img dudu-img">
+                    <div class="panda-label">Dudu</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Valorant Fate & Destiny -->
+        <div class="card">
+            <div><span class="valorant-badge">MATCHMAKING</span></div>
+            <h2>Written in the Stars ✨</h2>
+            <p>The algorithms thought they were just placing a <strong>Viper</strong> and a <strong>Chamber</strong> into a random competitive queue on a standard server. They didn't know they were deploying a master-class matchmaking script designed by destiny itself. I am so lucky that we met so extraordinarily.</p>
+        </div>
+
+        <!-- Section 4: The Unclickable "No" Game -->
+        <div class="card" id="game-card">
+            <h3>Question of the Day 🤨</h3>
+            <p>Do you love me more than I think you do?</p>
+            
+            <img src="question.jpg.png" alt="Do you love me?" style="width:140px; margin: 15px auto; display:block; border-radius: 10px;">
+
+            <div class="button-zone" id="btn-zone">
+                <button class="btn" id="yes-btn-static" onclick="confirmLove()">YES</button>
+                <button class="btn" id="no-btn" onmousemove="runAway()" onclick="cheatClick()">NO</button>
+            </div>
+            <div id="love-confirmed" style="display:none; margin-top:15px; color:#ff4757; font-weight:bold;">
+                Hehehe, I knew it! Math doesn't lie, and neither does my code. Love you the most! 🥰❤️
+            </div>
+        </div>
+
+        <!-- Section 5: Photo Gallery -->
+        <div class="card">
+            <h2>Our Favorite Memories 📸</h2>
+            <p>A few of my favorite moments with you...</p>
+            <div class="grid">
+                <div>
+                    <img src="photo1.jpg" alt="Memory 1" class="gallery-item">
+                    <p style="font-size: 0.9rem; color: #888;">Our cute date night ✨</p>
+                </div>
+                <div>
+                    <img src="photo2.jpg" alt="Memory 2" class="gallery-item">
+                    <p style="font-size: 0.9rem; color: #888;">Laughing together 🥰</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 6: Love Coupons -->
+        <div class="card">
+            <h3>Digital Love Coupons</h3>
+            <p>Click any coupon box to activate and open your receipt! 🎟️</p>
+            <div class="grid">
+                <div class="coupon" onclick="openCoupon('coffee')">
+                    <h4>☕ Coffee Delivery</h4>
+                    <p>Valid while you are deeply focused on debugging.</p>
+                </div>
+                <div class="coupon" onclick="openCoupon('dinner')">
+                    <h4>🍕 Free Dinner</h4>
+                    <p>Your choice of restaurant, on me!</p>
+                </div>
+                <div class="coupon" onclick="openCoupon('massage')">
+                    <h4>💆‍♂️ 15-Min Massage</h4>
+                    <p>For those stiff shoulders after long dev sprints.</p>
+                </div>
+                <div class="coupon" onclick="openCoupon('movie')">
+                    <h4>🎬 Movie Night</h4>
+                    <p>You pick the movie, I'll bring the popcorn.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FINAL SECTION: The Cosmic Promise (F1 & Bankai Edition) -->
+        <div class="card" id="promise-card">
+            <h2>Our Eternal Promise: Final Lap 🌌🏎️</h2>
+            <p>
+                "If I were the rain that joins sky and earth, that otherwise never touch, could I join two hearts as well? 
+                Turns out, it didn't take rain—it just took a random Valorant queue. 
+                From the moment we first met and first kissed, we promised to take this race to the very end."
+            </p>
+            
+            <img src="promise.jpg" alt="Our Promise" class="gallery-item" style="max-width:500px; margin: 15px auto; display:block;">
+
+            <p style="font-weight: bold; font-style: italic; color: #ff6b81;">
+                🏎️ No team orders here, Pookie. My heart rate is hitting 300km/h and we are locked into P1 for life.
+            </p>
+
+            <button class="btn" style="background-color: #ff4757; letter-spacing: 1px; font-weight: bold;" onclick="startSenbonzakura()">
+                BOX BOX: ACTIVATE BANKAI! 🏎️⚡
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+        // Background Music
+        function toggleMusic() {
+            var music = document.getElementById("bg-music");
+            if (music.paused) { music.play(); } else { music.pause(); }
+        }
+
+        // Live Counter (Feb 3, 2025)
+        const startDate = new Date("February 3, 2025 00:00:00").getTime();
+        setInterval(function() {
+            const now = new Date().getTime();
+            const diff = now - startDate;
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
+            document.getElementById("days").innerHTML = d;
+            document.getElementById("hours").innerHTML = h;
+            document.getElementById("minutes").innerHTML = m;
+            document.getElementById("seconds").innerHTML = s;
+        }, 1000);
+
+        // Highly Sensitive Runaway Button Logic
+        function runAway() {
+            var noBtn = document.getElementById("no-btn");
+            var xRange = window.innerWidth < 600 ? 80 : 160;
+            var x = Math.random() * (xRange * 2) - xRange;
+            var y = Math.random() * 80 - 40;
+            
+            noBtn.style.left = "auto";
+            noBtn.style.transform = `translate(${x}px, ${y}px)`;
+        }
+
+        function cheatClick() {
+            var noBtn = document.getElementById("no-btn");
+            noBtn.innerText = "YES";
+            noBtn.style.backgroundColor = "#ff6b81";
+            confirmLove();
+        }
+
+        document.getElementById("btn-zone").addEventListener("mouseleave", function() {
+            var noBtn = document.getElementById("no-btn");
+            noBtn.style.transform = "translate(0px, 0px)";
+            noBtn.style.left = "55%"; 
+        });
+
+        // FIXED: Coupon Pop-up System Handlers (MAMC Mention Removed!)
+        function openCoupon(type) {
+            const overlay = document.getElementById("couponModal");
+            const emoji = document.getElementById("modalEmoji");
+            const title = document.getElementById("modalTitle");
+            const desc = document.getElementById("modalDesc");
+            
+            emoji.classList.remove('pour-animation');
+
+            if (type === 'coffee') {
+                emoji.innerText = "☕";
+                emoji.classList.add('pour-animation'); 
+                title.innerText = "Coffee Order Confirmed!";
+                desc.innerText = "A fresh, hot cup of caffeine is authorized for immediate delivery right to your desk. Deployed to maximize focus parameters and squash errors during deep debugging sessions! ☕⚡";
+            } else if (type === 'dinner') {
+                emoji.innerText = "🍕";
+                title.innerText = "Dinner Voucher Redeemed!";
+                desc.innerText = "The pipeline has loaded your favorite pizza or restaurant request. This receipt authorizes a complete bypass of cooking duties—your choice, on my bill! 🍕✨";
+            } else if (type === 'massage') {
+                emoji.innerText = "💆‍♂️";
+                title.innerText = "Shoulder Patch v1.0 Live!";
+                desc.innerText = "Initializing manual decompression sequencing. Valid for a full 15-minute ergonomic shoulder massage to fix those stiff muscles build-up after a long game-development marathon session.";
+            } else if (type === 'movie') {
+                emoji.innerText = "🎬";
+                title.innerText = "Cinematic Queue Locked!";
+                desc.innerText = "You select the server build (the movie), and I will supply the popcorn asset resources. Get ready for a cozy side-by-side screening night with your favorite support player.";
+            }
+            overlay.style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("couponModal").style.display = "none";
+        }
+
+        // Infinite Senbonzakura Floating Petals Engine
+        const canvas = document.getElementById("effectsCanvas");
+        const ctx = canvas.getContext("2d");
+        let activeParticles = [];
+        let engineActive = false;
+
+        function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        function mainLoop() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            activeParticles.forEach((p, index) => {
+                p.x += p.vx + Math.sin(p.y / 30) * p.swing; 
+                p.y += p.vy;
+                p.rotation += p.rotationSpeed;
+
+                // Infinite Recycling Logic: Keeps petals looping flawlessly at the same pace
+                if (p.y > canvas.height + 20 || p.x > canvas.width + 20 || p.x < -20) {
+                    if (engineActive) {
+                        p.x = Math.random() * canvas.width;
+                        p.y = -20;
+                        p.vx = Math.random() * 1.5 - 0.2;
+                        p.vy = Math.random() * 2 + 1.2; // Maintained signature pace
+                    } else {
+                        activeParticles.splice(index, 1);
+                        return;
+                    }
+                }
+
+                ctx.save();
+                ctx.globalAlpha = p.alpha;
+                ctx.translate(p.x, p.y);
+                ctx.rotate(p.rotation);
+                
+                ctx.fillStyle = p.color;
+                ctx.beginPath();
+                ctx.ellipse(0, 0, p.size, p.size * 0.5, 0, 0, Math.PI * 2);
+                ctx.fill();
+                
+                ctx.strokeStyle = '#ff8fa3';
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(-p.size * 0.2, 0);
+                ctx.lineTo(p.size * 0.3, 0);
+                ctx.stroke();
+                
+                ctx.restore();
+            });
+
+            requestAnimationFrame(mainLoop);
+        }
+        requestAnimationFrame(mainLoop);
+
+        function confirmLove() {
+            document.getElementById("love-confirmed").style.display = "block";
+            const colors = ['#ffb3c1', '#ffccd5', '#ff8fa3'];
+            for(let i=0; i<40; i++) {
+                const angle = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 5 + 1;
+                activeParticles.push({
+                    x: window.innerWidth / 2, y: window.innerHeight / 2,
+                    vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed - 1,
+                    alpha: 1, decay: Math.random() * 0.02 + 0.01,
+                    size: Math.random() * 8 + 6, rotation: Math.random() * Math.PI,
+                    rotationSpeed: Math.random() * 0.05 - 0.025, swing: Math.random() * 0.5,
+                    color: colors[Math.floor(Math.random() * colors.length)]
+                });
+            }
+        }
+
+        function startSenbonzakura() {
+            if(engineActive) return; 
+            engineActive = true;
+            
+            const petalColors = ['#ffccd5', '#ffb3c1', '#ff4d6d', '#ff758f', '#fae0e4'];
+            const initialPetalCount = 125;
+            
+            for(let i=0; i < initialPetalCount; i++) {
+                activeParticles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height - canvas.height, 
+                    vx: Math.random() * 1.5 - 0.2,                     
+                    vy: Math.random() * 2 + 1.2,                       
+                    alpha: Math.random() * 0.4 + 0.6,
+                    size: Math.random() * 10 + 6,
+                    rotation: Math.random() * Math.PI,
+                    rotationSpeed: Math.random() * 0.03 - 0.015,
+                    swing: Math.random() * 0.6 + 0.2,
+                    color: petalColors[Math.floor(Math.random() * petalColors.length)]
+                });
+            }
+        }
+
+        // Night Mode Trigger
+        window.addEventListener('scroll', function() {
+            const promiseCard = document.getElementById("promise-card");
+            const position = promiseCard.getBoundingClientRect();
+            if(position.top < window.innerHeight * 0.75) {
+                document.body.classList.add('night-mode');
+            } else {
+                document.body.classList.remove('night-mode');
+            }
+        });
+    </script>
+</body>
+</html>
