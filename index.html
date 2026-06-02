@@ -169,8 +169,8 @@
 
         .button-zone {
             position: relative;
-            height: 70px;
-            margin: 15px auto 0 auto;
+            height: 80px;
+            margin: 20px auto 0 auto;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -361,7 +361,7 @@
         </div>
     </div>
 
-    <!-- SECTION 5 (FIXED IMAGE LINKS HERE) -->
+    <!-- SECTION 5 (FIXED CASE SENSITIVITY) -->
     <div class="section-block">
         <div class="container">
             <div class="card">
@@ -369,11 +369,11 @@
                 <p style="margin-bottom: 5px;">A few of my favorite moments with you...</p>
                 <div class="grid">
                     <div>
-                        <img src="photo1.jpg" alt="Memory 1" class="gallery-item">
+                        <img src="photo1.JPG" alt="Memory 1" class="gallery-item">
                         <p style="font-size: 0.85rem; color: #888; margin: 2px 0;">Our cute date night ✨</p>
                     </div>
                     <div>
-                        <img src="photo2.jpg" alt="Memory 2" class="gallery-item">
+                        <img src="photo2.JPG" alt="Memory 2" class="gallery-item">
                         <p style="font-size: 0.85rem; color: #888; margin: 2px 0;">Laughing together 🥰</p>
                     </div>
                 </div>
@@ -409,7 +409,7 @@
         </div>
     </div>
 
-    <!-- SECTION 7 (FIXED IMAGE LINK HERE) -->
+    <!-- SECTION 7 (FIXED CASE SENSITIVITY) -->
     <div class="section-block" id="promise-card-trigger">
         <div class="container">
             <div class="card" id="promise-card">
@@ -420,7 +420,7 @@
                     From the moment we first met and first kissed, we promised to take this race to the very end."
                 </p>
                 
-                <img src="promise.jpg" alt="Our Promise" class="gallery-item" style="max-height: 250px; object-fit: cover;">
+                <img src="promise.JPG" alt="Our Promise" class="gallery-item" style="max-height: 250px; object-fit: cover;">
 
                 <p style="font-weight: bold; font-style: italic; color: #ff6b81; font-size: 0.9rem; margin: 8px 0;">
                     🏎️ No team orders here, Pookie. My heart rate is hitting 300km/h and we are locked into P1 for life.
@@ -463,6 +463,7 @@
             noBtn.style.transform = `translate(${x}px, ${y}px)`;
         }
 
+        // Failsafe trick
         function cheatClick() {
             var noBtn = document.getElementById("no-btn");
             noBtn.innerText = "YES";
